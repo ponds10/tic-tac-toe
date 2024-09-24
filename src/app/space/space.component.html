@@ -4,8 +4,3 @@
  *ngIf="value">
   {{ value }}
 </button>
-<div class="h-16 w-16 text-5xl text-center pt-[8px] bg-white text-transparent"
- [ngClass]="{'hover:text-red-300': player == 'X', 'hover:text-blue-200': player =='O'}"
- *ngIf="!value">
- {{ player }}
-</div>

@@ -12,5 +12,4 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class SpaceComponent { 
   @Input() value: string | null = null
-  @Input() player: string | null = null
 }
