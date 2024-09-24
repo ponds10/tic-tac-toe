@@ -94,13 +94,13 @@ export class GridComponent implements OnInit {
   }
 
   enterAnimation(index: number) {
-    if(!this.spaceFilled[index]){
+    if(!this.spaceFilled[index] && !this.winner){
       this.spaces[index] = this.player
     }
   }
 
   exitAnimation(index: number) {
-    if(!this.spaceFilled[index]){
+    if(!this.spaceFilled[index] && !this.winner){
       this.spaces[index] = null
     }
   }
