@@ -13,24 +13,28 @@ import { SpaceComponent } from "../space/space.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GridComponent implements OnInit { 
-  spaces: string[]
+  spaces: (string | null)[]
+  spaceFilled: boolean[]
   xTurn: boolean
   winner: string | null
 
   constructor() {
     this.spaces = []
+    this.spaceFilled = []
     this.xTurn = true
     this.winner = null
   }
 
   ngOnInit(): void {
       this.spaces = Array(9).fill(null)
+      this.spaceFilled = Array(9).fill(false)
   }
   
   newGame(): void {
     this.spaces = Array(9).fill(null)
-    this.winner = null
+    this.spaceFilled = Array(9).fill(false)
     this.xTurn = true
+    this.winner = null
   }
 
   get player(): string {
@@ -42,8 +46,9 @@ export class GridComponent implements OnInit {
       return
     }
 
-    if(!this.spaces[index]) {
+    if(!this.spaceFilled[index]) {
       this.spaces[index] = this.player
+      this.spaceFilled[index] = true
       this.xTurn = !this.xTurn
     }
 
@@ -86,5 +91,17 @@ export class GridComponent implements OnInit {
     }
 
     return 'Draw'
+  }
+
+  enterAnimation(index: number) {
+    if(!this.spaceFilled[index]){
+      this.spaces[index] = this.player
+    }
+  }
+
+  exitAnimation(index: number) {
+    if(!this.spaceFilled[index]){
+      this.spaces[index] = null
+    }
   }
 }

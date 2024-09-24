@@ -6,7 +6,10 @@
         <app-space class="h-16 w-16"
          *ngFor="let space of spaces; index as i"
          [value]="space"
-          (click)="takeTurn(i)">
+         [filled]="spaceFilled[i]"
+         (click)="takeTurn(i)"
+         (mouseenter)="enterAnimation(i)"
+         (mouseleave)="exitAnimation(i)">
         </app-space>
       </div>
 

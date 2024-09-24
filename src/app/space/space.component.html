@@ -1,4 +1,4 @@
 <button class="h-16 w-16 text-5xl bg-white dark:bg-slate-800"
- [ngClass]="{'text-red-400': value == 'X', 'text-blue-300': value == 'O'}">
+ [ngClass]="{'text-red-400': value == 'X' && filled == true, 'text-blue-300': value == 'O' && filled == true, 'text-red-300': value == 'X' && filled == false, 'text-blue-200': value == 'O' && filled == false}">
   {{ value }}
 </button>
